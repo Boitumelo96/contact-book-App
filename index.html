@@ -5,11 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body onload="loadContacts()">
     <div id="table">Contacts loading</div>
     <button id="refresh" type="button">Refresh</button>
-    <button id="add-contact" type="button">Add Contact</button>
+    <button id="addContact" type="button">Add Contact</button>
 
-    
+    <script src="config.js"> </script>
+    <script>
+        function fetchContacts() {
+            fetch(rootPath + "controller/get-contacts/")
+            .then(function(response){
+                return response.json();
+            }) 
+            .then(function(data){
+                //display output data
+                console.log(data);
+            })
+            
+        }
+    </script>    
 </body>
 </html>
